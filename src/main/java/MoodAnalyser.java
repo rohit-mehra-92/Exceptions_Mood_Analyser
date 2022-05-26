@@ -6,14 +6,17 @@ public class MoodAnalyser {
         this.message = message;
     }
 
-     public MoodAnalyser() {
+    public MoodAnalyser() {
     }
 
-    public static String analyseMood(String message) {
-        if (message.toLowerCase().contains("sad"))
-            return "SAD";
-        else
+    public String analyseMood(String message) {
+        try {
+            if (message.toLowerCase().contains("sad"))
+                return "SAD";
+        } catch (NullPointerException e) {
             return "HAPPY";
+        }
+        return "HAPPY";
     }
 
     public String analyseMoodAgain() {
