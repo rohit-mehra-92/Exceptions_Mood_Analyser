@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class MoodAnalyserTest {
+public class MoodAnalyserTest<mood> {
 
     @Test
     void givenMessage_analyseSadMood() {
@@ -11,9 +11,16 @@ public class MoodAnalyserTest {
     }
 
     @Test
-    void givenMessage_AnalyseHappyMood() {
+    void givenMessage_analyseHappyMood() {
         MoodAnalyser moodAnalyzer = new MoodAnalyser();
         String mood = moodAnalyzer.analyseMood("I am in any mood");
         Assertions.assertEquals("HAPPY", mood);
+    }
+
+    @Test
+    void givenMessage_analyseSadMood_usingConstructor() {
+        MoodAnalyser moodAnalyser = new MoodAnalyser("I am in sad mood");
+        String mood = moodAnalyser.analyseMoodAgain();
+        Assertions.assertEquals("SAD", mood);
     }
 }
