@@ -1,6 +1,6 @@
 public class MoodAnalyserException extends Exception {
        enum ExceptionTypes {
-        ENTERED_NULL,
+        ENTERED_NULL, ENTERED_EMPTY
     }
 
     ExceptionTypes types;
