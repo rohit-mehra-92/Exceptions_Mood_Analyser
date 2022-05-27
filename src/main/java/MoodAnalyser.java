@@ -9,17 +9,17 @@ public class MoodAnalyser {
     public MoodAnalyser() {
     }
 
-    public String analyseMood(String message) {
+    public String analyseMood(String message) throws MoodAnalyserException {
         try {
             if (message.toLowerCase().contains("sad"))
                 return "SAD";
         } catch (NullPointerException e) {
-            return "HAPPY";
+            throw new MoodAnalyserException(MoodAnalyserException.ExceptionTypes.ENTERED_NULL, "Please check your mood");
         }
         return "HAPPY";
     }
 
-    public String analyseMoodAgain() {
+    public String analyseMoodAgain() throws MoodAnalyserException {
         return analyseMood(this.message);
     }
 }
